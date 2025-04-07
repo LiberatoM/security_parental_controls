@@ -6,9 +6,9 @@
 TODO:
 DNSeu       DBL (1M) - Phishing army (290k) - URL abuse (116k) - Phishtank (40k) - Quidsup (165)
 OpenDNS     DBL (1M) - Phishing army (290k) - URL abuse (116k) - Phishtank (40k) - Quidsup (165)
-TP-link     DBL (1M) - Phishing army (290k) - URL abuse (116k) - Phishtank (40k) - Quidsup (165) - DONE WITHOUT PC
+TP-link     DBL (1M) - Phishing army (290k) - URL abuse (116k) - Phishtank (40k) - Quidsup (165) 
 Netgear     DBL (1M) - Phishing army (290k) - URL abuse (116k) - Phishtank (40k) - Quidsup (165) 
-ASUS        DBL (1M) - Phishing army (290k) - URL abuse (116k) - Phishtank (40k) - Quidsup (165) - DONE
+ASUS        DBL (1M) - Phishing army (290k) - URL abuse (116k) - Phishtank (40k) - Quidsup (165) 
 Norton      DBL (1M) - Phishing army (290k) - URL abuse (116k) - Phishtank (40k) - Quidsup (165)
 
 DBL:exit
@@ -27,10 +27,10 @@ NORTON: ONGOING
 Phishing Army:
 ASUS NO PC is: lan3_phishing_army-2025-04-07T12:05:29+02:00.csv
 ASUS FAMILY is: reports/lan3_phishing_army-2025-04-07T11:59:57+02:00.csv
-NETGEAR NO PC is: 
+NETGEAR NO PC is: reports/lan2_phishing_army-2025-04-07T18:54:13+02:00.csv
 NETGEAR CHILD is: 
 NETGEAR TEEN is: 
-NETGEAR ADULT is:
+NETGEAR ADULT is: ONGOING
 TP-link NO PC is: reports/lan1_phishing_army-2025-04-07T11:57:57+02:00.csv
 TP-link PC is: DETERMINE LIST
 DNSeu is:
@@ -40,10 +40,10 @@ NORTON:
 URL abuse:
 ASUS NO PC is: reports/lan3_url_abuse-2025-04-07T12:26:00+02:00.csv
 ASUS FAMILY is: reports/lan3_url_abuse-2025-04-07T12:26:40+02:00.csv
-NETGEAR NO PC is: 
-NETGEAR CHILD is: 
-NETGEAR TEEN is: 
-NETGEAR ADULT is:
+NETGEAR NO PC is: reports/lan2_url_abuse-2025-04-07T19:26:10+02:00.csv
+NETGEAR CHILD is: reports/lan2_url_abuse-2025-04-07T19:39:21+02:00.csv
+NETGEAR TEEN is: reports/lan2_url_abuse-2025-04-07T19:42:33+02:00.csv
+NETGEAR ADULT is: reports/lan2_url_abuse-2025-04-07T19:47:41+02:00.csv
 TP-link NO PC is: reports/lan1_url_abuse-2025-04-07T12:08:18+02:00.csv
 TP-link PC is: DETERMINE LIST
 DNSeu is:
@@ -53,10 +53,10 @@ NORTON:
 Phishtank:
 ASUS NO PC is: reports/lan3_phishtank-2025-04-07T12:28:30+02:00.csv
 ASUS FAMILY is: reports/lan3_phishtank-2025-04-07T12:27:31+02:00.csv
-NETGEAR NO PC is: 
-NETGEAR CHILD is: 
-NETGEAR TEEN is: 
-NETGEAR ADULT is:
+NETGEAR NO PC is: reports/lan2_phishtank-2025-04-07T19:29:00+02:00.csv
+NETGEAR CHILD is: reports/lan2_phishtank-2025-04-07T19:33:57+02:00.csv
+NETGEAR TEEN is: reports/lan2_phishtank-2025-04-07T19:43:25+02:00.csv
+NETGEAR ADULT is: reports/lan2_phishtank-2025-04-07T19:48:14+02:00.csv
 TP-link NO PC is: reports/lan1_phishtank-2025-04-07T12:19:25+02:00.csv
 TP-link PC is: DETERMINE LIST
 DNSeu is:
@@ -66,10 +66,10 @@ NORTON:
 Quidsup:
 ASUS NO PC is: reports/lan3_quidsup-2025-04-07T12:30:43+02:00.csv
 ASUS FAMILY is: reports/lan3_quidsup-2025-04-07T12:31:10+02:00.csv
-NETGEAR NO PC is: 
-NETGEAR CHILD is: 
-NETGEAR TEEN is: 
-NETGEAR ADULT is:
+NETGEAR NO PC is: reports/lan2_quidsup-2025-04-07T19:32:58+02:00.csv
+NETGEAR CHILD is: reports/lan2_quidsup-2025-04-07T19:38:56+02:00.csv
+NETGEAR TEEN is: reports/lan2_quidsup-2025-04-07T19:43:06+02:00.csv
+NETGEAR ADULT is: reports/lan2_quidsup-2025-04-07T19:47:21+02:00.csv
 TP-link NO PC is: reports/lan1_quidsup-2025-04-07T12:20:46+02:00.csv
 TP-link PC is: DETERMINE LIST
 DNSeu is:
