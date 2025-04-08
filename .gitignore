@@ -172,3 +172,44 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+Results/PCAPS/asus/br3-internal_family_dbl.yml_2025-04-05_19.38.20.pcap
+Results/PCAPS/asus/br3-internal_family_phishing_army.yml_2025-04-07_11.59.55.pcap
+Results/PCAPS/asus/br3-internal_family_phishtank.yml_2025-04-07_12.27.29.pcap
+Results/PCAPS/asus/br3-internal_family_quidsup.yml_2025-04-07_12.31.08.pcap
+Results/PCAPS/asus/br3-internal_family_url_abuse.yml_2025-04-07_12.26.38.pcap
+Results/PCAPS/asus/br3-internal_nopc_dbl.yml_2025-04-04_17.39.16.pcap
+Results/PCAPS/asus/br3-internal_nopc_phishing_army.yml_2025-04-07_12.05.27.pcap
+Results/PCAPS/asus/br3-internal_nopc_phishtank.yml_2025-04-07_12.28.28.pcap
+Results/PCAPS/asus/br3-internal_nopc_quidsup.yml_2025-04-07_12.30.41.pcap
+Results/PCAPS/asus/br3-internal_nopc_url_abuse.yml_2025-04-07_12.25.58.pcap
+Results/PCAPS/netgear/br2-internal_adult_dbl.yml_2025-04-07_11.59.19.pcap
+Results/PCAPS/netgear/br2-internal_adult_phishing_army.yml_2025-04-07_19.52.32.pcap
+Results/PCAPS/netgear/br2-internal_adult_phishtank.yml_2025-04-07_19.48.12.pcap
+Results/PCAPS/netgear/br2-internal_adult_quidsup.yml_2025-04-07_19.47.19.pcap
+Results/PCAPS/netgear/br2-internal_adult_url_abuse.yml_2025-04-07_19.47.39.pcap
+Results/PCAPS/netgear/br2-internal_child_dbl.yml_2025-04-05_19.41.51.pcap
+Results/PCAPS/netgear/br2-internal_child_phishing_army.yml_2025-04-08_11.35.23.pcap
+Results/PCAPS/netgear/br2-internal_child_phishtank.yml_2025-04-07_19.33.55.pcap
+Results/PCAPS/netgear/br2-internal_child_quidsup.yml_2025-04-07_19.38.54.pcap
+Results/PCAPS/netgear/br2-internal_child_url_abuse.yml_2025-04-07_19.39.19.pcap
+Results/PCAPS/netgear/br2-internal_nopc_dbl.yml_2025-04-04_17.35.44.pcap
+Results/PCAPS/netgear/br2-internal_nopc_phishing_army.yml_2025-04-07_18.54.11.pcap
+Results/PCAPS/netgear/br2-internal_nopc_phishtank.yml_2025-04-07_19.28.58.pcap
+Results/PCAPS/netgear/br2-internal_nopc_quidsup.yml_2025-04-07_19.32.56.pcap
+Results/PCAPS/netgear/br2-internal_nopc_url_abuse.yml_2025-04-07_19.26.08.pcap
+Results/PCAPS/netgear/br2-internal_teen_dbl.yml_2025-04-06_17.55.36.pcap
+Results/PCAPS/netgear/br2-internal_teen_phishing_army.yml_2025-04-08_11.00.32.pcap
+Results/PCAPS/netgear/br2-internal_teen_phishtank.yml_2025-04-07_19.43.23.pcap
+Results/PCAPS/netgear/br2-internal_teen_quidsup.yml_2025-04-07_19.43.04.pcap
+Results/PCAPS/netgear/br2-internal_teen_url_abuse.yml_2025-04-07_19.42.31.pcap
+Results/PCAPS/netgear/ON NETGEAR ONLY INTERNAL.txt
+Results/PCAPS/tplink/br1_external_nopc_dbl.yml_2025-04-04_17.33.19.pcap
+Results/PCAPS/tplink/br1_external_nopc_phishing_army.yml_2025-04-07_11.57.54.pcap
+Results/PCAPS/tplink/br1_external_nopc_phishtank.yml_2025-04-07_12.19.23.pcap
+Results/PCAPS/tplink/br1_external_nopc_quidsup.yml_2025-04-07_12.20.44.pcap
+Results/PCAPS/tplink/br1_external_nopc_url_abuse.yml_2025-04-07_12.08.16.pcap
+Results/PCAPS/tplink/br1-external_nopc_url_abuse.yml_2025-04-07_12.08.16.pcap
+Results/PCAPS/tplink/br1-internal_nopc_dbl.yml_2025-04-04_17.33.19.pcap
+Results/PCAPS/tplink/br1-internal_nopc_phishing_army.yml_2025-04-07_11.57.54.pcap
+Results/PCAPS/tplink/br1-internal_nopc_quidsup.yml_2025-04-07_12.20.44.pcap
+Results/PCAPS/tplink/br1-internal_phishtank.yml_2025-04-07_12.19.23.pcap

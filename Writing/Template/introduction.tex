@@ -1,0 +1,33 @@
+% !TEX root = atr.tex
+
+
+
+\section{Introduction}\label{introduction}
+Anycast is the practice of making an Internet address available in multiple discrete locations~\cite{rfc4786}.
+This allows operators to offer services closer to clients and increase resilience through redundancy.
+Examples include DNS resolvers and nameservers, and CDNs providing web caching.
+Whilst the number of anycast addresses on the Internet are small (<1\%) % todo calculate number and cite manycast paper
+it has a large share in Internet traffic~\cite{anycast_cdn}. % cite passive data analysis paper analyzing network traffic to anycast addresses
+
+For this reason, efforts have been made to map anycast deployments on the Internet to \eg, measure Internet resilience.
+The most notable are \manycasttwo~\cite{manycast2} and iGreedy~\cite{igreedy} that can differentiate between unicast and anycast addresses % cite both
+, the latter of which can also enumerate and geolocate the Points of Presence (PoPs) behind anycast addresses.
+iGreedy geolocates using latency measurements by probing an anycast address from multiple geographically distributed Vantage Points (VPs), similar to conventional IP unicast geolocation.
+However, such latency measurements are known to be noisy due to \eg, network propagation delays.
+
+Unicast IP geolocation often uses tools like traceroute to improve precision.
+Traceroute allows for measuring the path that an Internet packet takes to reach its target.
+When determining the location of a target, traceroute can be used to find nearby hops that have available location information.
+It has also been used to geolocate anycast using the location of hops near PoPs, to infer the location of the PoPs themselves.
+% an image explaining how this works (visualization of traceroute from different VPs to different anycast sites) could be useful
+One example is verification of GDPR compliance~\cite{hunter}.
+However, traceroute has limitations like tunneling % cite Matthew's paper on the wide usage of tunneling visible in traceroute
+that keep hops hidden and may result in indeterminate geolocation results.
+
+This work puts the traceroute technique to the test by performing it at scale towards 13k anycast prefixes. % cite our arxiv paper?
+Our contributions are i) an extensive validation of the technique, ii) release of the measurement and analysis code, iii) public release of the dataset revealing up to N anycast PoPs for Y prefixes.
+
+The paper is structured as followed.
+First, in \S\ref{background} we briefly discuss background on anycast detection and traceroute and provide related work on using traceroute to detect anycast.
+Then, we detail the methodology used in \S\ref{methodology} followed with an analysis of results in \S{results}.
+Finally, we discuss the performance of traceroute to detect anycast and list further use cases in \S\ref{discussion}.

@@ -1,0 +1,20 @@
+% !TEX root = atr.tex
+
+\section{Methodology}\label{methodology}
+This work builds on the methodology developed by Zhou et al.~\cite{regional}.
+\subsection{Previous method}
+This would basically describe that we build on the methodology from the regional anycast paper.
+They use the location of hops nearby the anycast site reached that is determined with PTR records, RTT differences between hops, and ipinfo for nearby hops as a last resort.
+
+\subsection{Automating PTR record translation}
+Since we have to perform this as scale, and can't manually figure out the PTR record location, we intend on adding hoiho (Matthew's PTR to location script) and the new LLM variant of hoiho that Raffaele shared.
+
+\subsection{Measuring distance from traceroute hops}
+we also would investigate using traceroute hops as additional VPs for the iGreedy algorithm, if they show stable RTT values and have 'known' locations.
+
+\subsection{Measurement set-up}
+We use Ark with this many VPs that support traceroute.
+We should also consider using RIPE Atlas in addition.
+We target this candidate set created by MAnycast2.
+We compare with iGreedy results ran on the same set, with the same VPs.
+We describe ground-truth sources for validation.

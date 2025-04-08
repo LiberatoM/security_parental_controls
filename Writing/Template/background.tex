@@ -1,0 +1,81 @@
+% !TEX root = atr.tex
+
+\section{Background and related work}\label{background}
+In this section we first provide a background on anycast detection and traceroute.
+Next, we discuss related work on measuring anycast with traceroute.
+\subsection{Anycast detection}
+The current state-of-the-art in detecting anycast is iGreedy.
+This approach uses the speed of packets in fibre optic cables (roughly two thirds the speed of light), combined with measured ping latencies, to determine the maximum distance travelled from multiple VPs in distinct locations.
+In the case of a unicast target, all circles will overlap providing a single solution within the intersection of all areas (\ie, trilateration).
+
+However, in the case of an anycast target you will observe non-intersecting sets of circles where each set of circles reaches a different anycast PoP.
+In this case, the iGreedy algorithm finds the minimum set of independent overlapping areas in which anycast PoPs must be located for there to be no speed-of-light violation.
+Next, it tags the location as the largest metropolitan area within this area, as anycast operators often deploy their PoPs in such areas to maximize utility.
+Its output is the airport nearest to that metropolitan area.
+
+The accuracy of this method  % accuracy or precision?
+is dependent on the number and the geographical diversity of VPs used.
+%Furthermore, it performs best with VPs in networks with a short and fast path to transit ASes like CDNs.
+% basically trying to say: GCD works poorly from residential networks since they have inflated latencies  to the Internet, whereas traceroute would not suffer as much from this limitation.
+It has shown to be quite accurate achieving a recall  N\% of with an average error of N kilometers.
+However, it suffers from a large probing cost.
+
+\manycasttwo is a lightweight detection technique for anycast, requiring only a few probes to determine whether an address is anycast.
+This is achieved by measuring anycast using anycast, where ping packets are sent to a target from all PoPs of a measurement anycast infrastructure using an anycast source address.
+If the target is unicast, this unicast target receives the same probe from each anycast PoP and sends back replies for each received probe.
+These replies target the anycast address that was the source of the original probe, and will therefore route to the nearest PoP of the measurement infrastructure.
+But, if the target is anycast, the probe replies will reach different target anycast PoPs where each will send back its probe replies to different measurement infrastructure PoPs.
+Therefore, if a single measurement PoP receives probe replies it is inferred to be unicast and if multiple measurement PoP receive probe replies it is inferred to be anycast.
+
+Unfortunately, this approach will in rare cases falsely classify a unicast target as anycast when its replies reach multiple PoPs, which happens due to \eg, route flaps.
+Therefore, the output addresses of \manycasttwo (where more than one PoP received replies) are considered \textit{candidate anycast} as it overestimates.
+
+
+In this work, we use \manycasttwo to generate a set of candidate Anycast Targets (ATs).
+These ATs are measured using the traceroute technique.
+Additionally, they are measured with iGreedy to provide a comparison of both anycast geolocation methodologies.
+
+\subsection{Traceroute}
+% paris traceroute
+% traceroute to do geolocation
+% 
+Traceroute traces Internet paths by triggering routers on-path towards a target to send back ICMP \texttt{TTL-exceeded} replies.
+%Each router on path will send back such a reply with its own address as source.
+Such routers are often configured with PTR records that operators use for debugging purposes,
+and contain information like the ASN, network type, country and city where the router is located. % TODO verify these are common fields
+Thereby, it is possible to infer hints on the geographical path a packet took towards a target by looking at PTR records or geolocation database entries for such router addresses.
+Furthermore, it is possible to infer locations of Internet addresses using traceroute as there may be geolocation information available for nearby hops (where nearby is determined with RTT).
+In particular, the pen-ultimate hop (\textit{p-hop}), \ie, the hop before the destination, is often used as it is closest to the destination.
+
+Several works use traceroute to perform unicast geolocation % cite papers
+in this work we utilize it to geolocate anycast PoPs.
+
+\subsection{Measuring anycast with traceroute}
+First, in 2013 Xun et al.~analysed the usage of anycast in the DNS~\cite{chaos}.
+They used CHAOS records, a record set by operators to identify the specific nameserver reached, to enumerate DNS anycast deployments.
+However, as unique CHAOS records were used for multiple load-balanced nameservers at a single anycast PoP they augmented it with traceroute to resolve ambiguities.
+% limitations: does not geolocate, relies on CHAOS (using traceroute only to resolve ambiguities)
+
+That same year, RIPE NCC released \textit{ipmap}, a project to geolocate addresses using historical traceroute data from RIPE Atlas VPs
+that returns possible locations of an IP address~\cite{ipmap}.
+Later, they added an anycast classification where multiple available locations would be returned.
+% limitations: relies on historical traceroute data (not always available), api does not provide clean results, only finds few locations for e.g., 1.1.1.1
+
+Next, Wei et al.~in 2017 measured the occurrence of anycast flipping (\ie, a single client flipping between multiple anycast PoPs) where they used the pen-ultimate hops of traceroutes to detect a client reaching multiple distinct PoPs~\cite{flipping}.
+% limitations: does not geolocate, only detects different anycast sites
+
+Recently, in 2023 traceroute was used to geolocate the PoPs of regional anycast deployments by Zhou et al.~\cite{regional}
+By geolocating the p-hop as observed from RIPE Atlas VPs,
+they infer the location of the PoP reached by mapping it to the closest PoP location from available ground truth.
+They performed their methodology towards regional anycast prefixes from two CDNs and showed they were able to infer the reached site in the majority of cases.
+% limitations: used ground-truth to infer the location, only conducted towards two anycast operators
+
+Finally, Pascual et al.~introduced a tool to trace anycast communications (\textit{Hunter}), to verify compliance to data protection regulations for personal data transfers, in 2024~\cite{hunter}.
+Their method geolocates the p-hop visible in a traceroute, then performs geolocation using latency measurements from nearby RIPE Atlas VPs.
+Their method showed high accuracy and precision in geolocating the PoP reached when validating using two anycast addresses from Cloudflare.
+%Whilst promising, their results may show lesser accuracy when performed towards anycast addresses from other operators.
+% limitations: designed for geolocating a single site, geolocates with ping measurements, validated only with two cloudflare addresses
+
+Unlike previous work, that used traceroute towards a select few anycast operators, we explore the effectiveness of using traceroute to geolocate anycast PoPs towards 13k anycast prefixes found using \manycasttwo and iGreedy.
+%These targets contain a large variety of operators and networks, where ground-truth data is not readily available and traceroute limitations like tunneling may be present.
+By doing so, we aim to provide an extensive dataset containing the geographical distribution of these anycast networks.

@@ -1,0 +1,35 @@
+% !TEX root = atr.tex
+
+\section{Results}
+\subsection{Detection}
+How does the technique perform in detection? Does it have FPs? Does it have FNs?
+How does it compare to iGreedy and MAnycast2.
+
+\subsection{Enumeration}
+How many sites can be discovered with the traceroute technique?
+What does the distribution look like?
+How does this compare to iGreedy results?
+What about ground truth (using e.g., CHAOS records, public info, operator GT).
+
+\subsection{Geolocation}
+Similar to above.
+
+How close does traceroute get to the real location?
+Does it get closer than iGreedy?
+
+\subsection{Locations}
+We could write about the locations found.
+For example, where are anycast operators often located?
+Where are anycast operators often not located?
+Do we see different deployment strategies by operators?
+How many sites do we find on average?
+
+% where are sites hosted?
+Traceroute results may also reveal where the PoPs are hosted. E.g., are they hosted by Vultr? Or Equinix?
+Mapping AS diversity of anycast prefixes is an interesting analysis.
+Also gives data on upstreams of anycast prefixes.
+
+\subsection{MAnycast2 FPs}
+I suspect this will shed light on the MAnycast2 FPs.
+These are mostly Microsoft prefixes that are announced globally, but route to unicast servers.
+Traceroute will reveal this, and we can further investigate or write it as future work to map this TE practice by global ASes.

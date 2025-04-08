@@ -1,0 +1,45 @@
+Our analysis reveals significant variation across parental control systems in both scope and strategy. 
+Norton and DNS-based tools exhibit the broadest and most assertive filtering, blocking hundreds of thousands of domains, including many that are uniquely targeted by them.
+In contrast, router-based solutions demonstrate more limited coverage and, in some cases, internal inconsistencies that undermine their tiered structure.
+TP-Link’s keyword-based blocking shows success in specific categories but lacks broader effectiveness. 
+The lack of consensus across tools, shown in both the UpSet plot and category-level analysis, highlights the fragmented nature of web content filtering.
+These findings raise important questions about transparency, policy alignment, and the user’s ability to make informed decisions when selecting parental control solutions.
+
+Our analysis is subject to a few limitations. 
+First, our evaluation relies on a third-party domain classification system, in this case Cisco Umbrella Investigate, to assign categories to websites. 
+While Cisco Umbrella Investigate provides a broad and well-maintained categorization, a number of domains (22\%) remained unclassified or were labeled as ``unknown''. This inherently creates a level of uncertainty as we are not able to judge if those domain should be blocked or not. 
+However, it should be noted that the vast majority of unknown domains appeared in the final third of the ranked domain list, meaning they are less popular and less frequently accessed. Consequently, their impact on the overall results, particularly concerning popular domains, is considered to be limited.
+%
+Secondly, we have further grouped the website categories in those that should be blocked and those that should not.
+This division was guided by prior literature and common sense, but it clearly contains a degree of subjectivity. 
+Different stakeholders, such as parents, educators, policy makers, and parental control manufacturers may disagree on what content should be considered acceptable for different age groups.
+%
+% Thirdly, the scope of our study is limited to a representative but incomplete sample of parental control solutions. 
+
+% We tested three consumer routers (one with three levels of filtering), two DNS-based services, and one software-based system. 
+% This selection gave us insight on a variety of enforcement strategies, but it does not cover the full range of available tools. 
+% In particular, ISP-level controls, mobile apps, and newer AI-based filtering systems were not analyzed in this instance.
+% \todo[inline]{something else?}
+
+\todo[inline]{Ale: we actually did more than one measurement, no? This was the case at least for the Cisco classification. Saying "one shot" is really dangerous.}
+Thirdly, we performed a one-shot measurement to assess the blocking behavior of the selected parental control solutions. This approach gives us an overview of the overall behavior of the parental control systems we selected, but it does not allows us to draw conclusions about possible changes over time of the blocking behavior. A longitudinal study capturing updates in filtering behavior and changes in classification could provide insight into whether the effectiveness of these tools changes.
+
+Finally, we have worked with the version of the Tranco list that does not include subdomains. This means that parental control solutions could potentially react differently to a root domain and a subdomain. We leave this analysis as future study.
+
+% Finally, there are a number of additional performance metrics that we have deemed out of scope for this study, but that could potentially play a role, at the network level, in parental control systems, such as for example latency or the interplay between inappropriate content and security. 
+
+% To address the limitations
+% In regard to possible future work, there several feasible directions.
+% As indicated in Sec.~\ref{sec:methodology}, our study focused on a set of market leading parental control solutions. However, we realize this ecosystem is in continuous evolution. In particular, our study could be expanded to cover a broader range of parental control systems, including ISP-level filtering solutions, mobile devices and newer AI-based tools.
+
+
+
+% This expansion would provide a more complete overview of the landscape of parental control technologies.
+% Second, our evaluation relied on a predefined set of domain categories that we subjectively determined to be appropriate or inappropriate for children. 
+% Future work could involve user studies to gather input from parents, educators, or child psychologists, in order to better provide a stronger category selection. (maybe reowrd this last sentence)
+% Third, although we focused on content filtering effectiveness, we did not evaluate potential side effects of these solutions, such latency and security issues. 
+% A more holistic analysis could consider the impact of these aspects.
+% Fourth, while our dataset focused on a large and ranked list of domains, future work could examine parental control behavior over time and using different datasets.
+% A longitudinal study capturing updates in filtering behavior and changes in classification could provide insight into whether the effectiveness of these tools changes.
+% Finally, improving classification coverage and accuracy in web classification remains an open challenge. 
+% Using multiple classification systems or developing a custom classifier trained for child safety could reduce the number of unknowns and improve the analysis of blocking behavior.

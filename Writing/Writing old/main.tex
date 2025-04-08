@@ -1,0 +1,127 @@
+%\documentclass{article} % Or some other class?  like 'report' or 'IEEEtran'
+\documentclass[conference]{IEEEtran}
+\usepackage[utf8]{inputenc}  
+\usepackage{graphicx}        
+\usepackage{cite} 
+\usepackage{amsmath, amssymb}
+\usepackage{hyperref}        
+%\usepackage{natbib}       
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{booktabs}
+\usepackage{soul}        
+\usepackage{svg}
+\usepackage{hyperref}  
+\usepackage{cleveref}
+
+\newcommand\Mycite[1]{%             
+  \citeauthor{#1}~\cite{#1}} 
+% Produce citation in style     John et al. [1]         using \Mycite{}
+% for citations in style        John et al. [2020]      change line 16 to    \citeauthor{#1}~[\citeyear{#1}]} 
+  
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+    
+\begin{document}
+
+\title{To Block Or Not To Block? Evaluating Parental Controls Across Routers, DNS Services, and Software}
+
+
+\author{\IEEEauthorblockN{Matteo Liberato}
+\IEEEauthorblockA{University of Twente\\
+m.liberato@utwente.nl}}
+
+\author{\IEEEauthorblockN{Antonia Affinito}
+\IEEEauthorblockA{University of Twente\\
+a.affinito@utwente.nl}}
+
+\author{\IEEEauthorblockN{Bernd Meijerink}
+\IEEEauthorblockA{University of Twente\\
+bernd.meijerink@utwente.nl}}
+
+\author{\IEEEauthorblockN{Ralph Holz}
+\IEEEauthorblockA{University of M\"{u}nster\\
+ralph.holz@uni-muenster.del}}
+
+\author{\IEEEauthorblockN{Mattijs Jonker}
+\IEEEauthorblockA{University of Twente\\
+m.jonker@utwente.nl}}
+
+\author{\IEEEauthorblockN{Alessio Botta}
+\IEEEauthorblockA{Universit\`{a} degli Studi di Napoli Federico II\\
+a.botta@unina.it}}
+
+\author{\IEEEauthorblockN{Anna Sperotto}
+\IEEEauthorblockA{University of Twente\\
+a.sperotto@utwente.nl}}
+
+
+\author{\IEEEauthorblockN{Anonymous Authors}}
+
+
+\maketitle
+
+\begin{abstract}
+In today's society, ensuring the safety of children online has become a priority for parents, educators, and policymakers. Parental control systems are widely used to restrict access to age-inappropriate online content, offering a tool for protecting children from potential online risks.
+However, their blocking behavior across different technologies remains hidden and poorly analyzed.
+In this paper, we present a comparative analysis of seven parental control solutions: three provided by routers with built-in filtering functionalities (TP-Link, Netgear, and ASUS), two DNS-based services (OpenDNS and DNS.eu), and a software tool (Norton Family).
+Each system was tested by systematically visiting a large set of domains and recording which were blocked.
+We then classified all domains into content categories and used this classification to evaluate the consistency and selectivity of each parental control system.
+Our findings show that parental controls frequently fall short of providing adequate protection: Some systems fail to block up to 96\% of inappropriate domains, while others block appropriate content or apply inconsistent and arbitrary filtering rules.
+For example, ASUS allows access to over 95\% of gambling websites, and Netgear exhibits internal inconsistencies, with one-third of the domains blocked under its "Adult" settings remaining accessible under its stricter "Child" setting.
+These results provide insight into the real-world operation of popular parental control technologies and show a methodology for evaluating category-based filtering at scale.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Network measurements, Use and digitalization, Parental control.
+\end{IEEEkeywords}
+
+% Each parts automatically adds .tex to the input field
+
+\section{Introduction}
+\input{1_Introduction}  
+
+\section{Background \& Related work}\label{sec:rw}
+\input{2_Background_and_related_work_Antonia}  
+
+\section{Methodology}\label{sec:methodology}
+\input{3_Methodology}  
+
+\section{Dataset}\label{sec:dataset}
+\input{4_Dataset}
+
+\section{Results}\label{sec:results}
+\input{5_Results} 
+
+\section{Discussion}\label{sec:discussion}
+\input{6_Limitations_and_future_works}
+
+\section{Conclusions}\label{sec:conclusions}
+\input{7_Conclusion} 
+
+%TODO: DO NOT FORGET ACKS
+%\textbf{Acknowledgements --} CVD, Cisco 
+
+\bibliographystyle{IEEEtran} 
+\bibliography{references}  % references go in references.bib
+
+\appendix
+
+\subsection{Ethical Considerations}
+Our measurement approach involves active measurements, both at the DNS level
+(routers and DNS services) and the HTTPS level (software). We took care to
+avoid undue load on the on the infrastructure of the services we were testing.
+For the routers, we performed fewer than 120 DNS $requests/s$, which is
+well below the number of requests a resolver is able to handle in operational
+settings.
+For the DNS service, taking into account that they involve open resolvers
+dedicated not only to parental control functionality, we set an even more cautious
+pace, limiting ourselves to 300K $requests/day$ (3.5 $requests/sec$).
+Finally, the software solutions appeared not to directly rely on a back-end
+infrastructure, so we did not apply any explicit pacing as the measurement is
+naturally quite slow. To further limit any possible impact, we focused on a
+one-shot measurement.
+For website categorization we rely on data provided by Cisco. A number of
+Top sites contain potentially disturbing content. During the
+measurements we took care that we never visually load any of those pages. 
+
+\end{document}

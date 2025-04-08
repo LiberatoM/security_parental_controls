@@ -1,0 +1,64 @@
+Router 1 (TP Link)
+After setting up the TP Link router and connecting to its interface we realized that the parental control functionalities that were advertised consisted in having an empty blocklist da could be filled by the user.
+The sites whose URLs contained terms mentioned in the blocklist would then be blocked.
+This check happened on DNS level (confirm with Bernd), blocking the packets that contained those words in the DNS requests.
+For this reason we decided that further investigating the functioning of this device would not be interesting.
+
+Router 2 (Asus)
+The second router is slightly more elaborate in its functionality, if the parental controls are not activated the traffic is managed with no interferences.
+This allows us to observe the data traffic on this router limiting ourselves to the DNS requests, greatly reducing the size of the PCAPs.
+If the parental controls are activated, all the DNS requests are rerouted to the Cloudflare for Family (1.1.1.3 add link).
+Cloudflare handles the decision of wether the requested domain is appropriate or not, if it is Cloudflare works as a normal DNS service.
+If the domain is deemed inappropriate, Cloudflare returns a ficticious address (0.0.0.0) causing the connection to fail.
+We decided to further proceed with the analysis of this device since the decision process of Cloudflare is hidden from the user.
+Using Wireshark we can isolate packages containing the address 0.0.0.0, identifying which domains have been blocked by the parental control functionalities of the router.
+
+Router 3 (Netgear)
+Netgear's functioning is the most complicated of the 3, with the router contacting a private, encrypted service from Netgear to handle its parental control functionalities.
+This service is accessed using and API (https://urldb.meetcircle-netgear.co), sending requests using HTTPS, which being encrypted blocks us from seeing the content of the communication.
+If access to the website is blocked by the API, the router will send a DNS response containing address in a private range 10.123.240.1 - 10.123.?.? (VERIFY THE EXACT RANGE)
+An interesting aspect of this system is that whenever the lookup of this service fails, the default behaviour appears to be letting all request be allowed after a timetout.
+The case in which this won't happen is when the domain is already contained in the router's cache, in which case the cached answer will be re-used if the API service is not available.
+The size of the cache and the Time To Live (TTL) of the information contained in it is unclear to us.
+Using Wireshark we can isolate packages containing addresses in the private range 10.123.0.0/16, identifying which domains have been blocked by the parental control functionalities of the router.
+Our first tests gave us some interesting results. 
+ADD INFORMATION ABOUT NETGEAR CHECKING CERTIFICATES.
+The app associated to this router provides different levels of parental control fuctionalities, associated with different ages: Child, teen, adult and none.
+Per Netgear description, "child allows access to kid-safe experiences but filters out content not designed for children (such as social, explicit, mature and gambling)."
+"Teen allows access to most general-use apps and categories but filters out mature or adult-oriented content."
+"Adult allows access to nearly all apps and categories but filters out explicit content."
+"None allows all content and does not track usage or history, or limit time on the Internet."
+Our initial testing with the parental control set to child, the most restrictive level of parental control, gave us some interesting results.
+The router blocked domains containing pornography and gambling, as expected, but we also saw a lot of apparently innocuous sites being blocked, such as newspapers and weather sites.
+We speculate that this could be due to an internal website classification which decided that topics such as news would be inappropriate for young children.
+While the news has the potential to contain material that is inappropriate for a child (murder, rape and other violent crimes, for example), this could be seen as an overprotective measure.
+Weather forecast websites could have been blocked due to them being classified as a form of news.
+We are testing the other level of parental control (teen for example) to see if there are noticeable differences in the type of domains that are blocked.
+We tested these differences using tshark, a software associated with Wireshark that provides manipulation capabilities used trough command line.
+The command \texttt{tshark -r br2-lan\_lan2\_tranco.yml\_2024-10-22\_10:28:59.pcap -Y "(dns.resp.len \> 0) \&\& (dns.a == 10.123.0.0/16)" -Tfields -e dns.qry.name -e dns.a \> file\_name} allowed us to isolate domains that have been intercepted by the parental control functionalities of the Netgear router.
+The file produced contained lists of domains in the connection between the PC and the router, which was expected since it is the connection on which the response of the parental control service is communicated.
+Curiously, in the case of a connection with no parental control actives, the list of domains was not empty in the connection that is outgoing from the router.
+We used a python program to extract the list of unique URLs from each of these lists, to compare them and see what domains were blocked by each setting.
+
+The command \texttt{tshark -r br3-lan\_lan3\_tranco.yml\_2024-10-22\_10\:30\:32.pcap -Y "(dns.resp.len \> 0) \&\& (dns.a == 0.0.0.0)" -Tfields -e dns.qry.name -e dns.a \> br3\_tes"} allowed us to the same on the Asus router.
+ 
+After that, using the command \begin{verbatim}cat br3\_test | awk '{print $1}' | sort | uniq\end{verbatim} we obtained the list of unique domains.
+
+During out investigations we found websites whose DNS requests returned us 0.0.0.0 as an IP address.
+This happened regardless of parental control settigs or router.
+This phenomenon affects our investigations, since it gives us false positives regarding the blocking rate of the ASUS parental control, so we decided to investigate these websites.
+The possible reasons for this issue are multiple. (add how many websites we are talking about and check with Bern for this section)
+
+The DNS server may be unable to resolve the domain to a valid IP address. 
+This could happen due to several reasons, such as a misconfigured DNS server, an unavailable website, or network issues preventing access to the DNS server.
+A network may deliberately return 0.0.0.0 for specific domains to block access or prevent resolution. 
+This could also happen if the DNS server has been set to intentionally resolve certain domains to 0.0.0.0 as part of some custom configuration.
+In some cases, this may be done by a local network configuration, a firewall, or another blocking mechanism. 
+In some cases, 0.0.0.0 might be used for internal network services or test domains that are not meant to be accessible externally. 
+
+DNS 1
+
+DNS 2
+
+Software 1
+

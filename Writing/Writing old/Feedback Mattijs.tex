@@ -1,0 +1,82 @@
+
+Abstract
+
+- "In today’s society, ensuring the safety of children online has become a priority for parents, educators, and policymakers." -- I wonder if you can make this more "tangible" for readers by adding an example which then also serves to add some urgency. I found an Amnesty International technical report on the role of TikTok in exposing children and young people to harmful mental health content. See hhttps://www.amnesty.org/en/documents/POL40/7350/2023/en/. Perhaps you can add: "A recent report by Amnesty International substantiates the risks of children and young people being exposed to harmful mental health content." (I wouldn't mention tiktok specifically)
+
+- "However, their blocking behavior across different technologies remains hidden and poorly analyzed." -- First of all, "poorly" has a bit of a bad connotation so I would avoid this. More importantly, a reader may not immediately understand "hidden" I suppose you mean (so I would write it this way): "their internal workings and blocking behaviors across different technologies are not yet well understood"
+
+- The names of routes, dns-based services and software are not needed in the abstract if you ask me
+
+- "Each system was .. system." -- This to me reads: we push domains through and afterwards establish and consider the content category. This may seem oddly out of order to readers: why would you not establish the content type beforehand? I flipped to methodology and there you do write "Within the Tranco dataset, we identified ..." _before_ running the names through the control systems. Perhaps you can already introduce Cisco as the classification origin in the abstract.
+
+- "For example, ASUS ... "child" setting." -- Going into the specific brands may be too much detail for the abstract. You could shorten it to something brand-agnostic: "apply arbitrary and inconsistent rules, for example by blocking domains under the "adult" level setting while letting them pass under the stricted "child" level setting". This and the 96% figure in the preceding sentence then seems sufficient to jump to "These results provide .."
+
+
+1. Introduction
+
+%- "Children are potentially exposed" -- You can make this stronger: "can be and are in practice exposed to ..." and then consider using the Amnesty International report again
+
+%- "their effectiveness is hard to verify, due to a lack of transparency" -- So the wording here is different from the abstract, where you used "hidden" and "poorly analyzed". I'd try to keep this consistent (easier on the reader as well). The black-box part that follows is good. Would you be comfortable in saying that "this is, in part, because the systems are proprietary and commercial products"
+
+%- "potential over-blocking ... or, worst, under-blocking" -- I recommend putting them in order of urgency: concerns about protection -> under-blocking -> potential over-blocking.
+
+%- "allowing for a direct comparison of their filtering mechanisms" -- I don't fully understand what you are trying to say here. One the one hand you say they are black-boxes, on the other you here say "direct comparison is possible". Do you mean: "although black boxes, the input and output allow us to infer ..."?
+
+%- "to two popular parental controls softwares, Mobicip and Norton" -- in the abstract you only mention "a software tool (Norton Family)"
+
+%- "many of these functionalities" -- What does these functionalities refer to? Do you mean that "our investigation reveals that many of the parental controls rely on the domain name system (DNS) protocol to filter and block domains"
+
+%- "DNS filtering is a widely used technique ..." -- In my opinion this needs to go to the background section
+
+%- "On top of this we purchased subscirptions to two popular parental controls software solutions, Mobicip and Norton" -- This was said before
+
+%- "Unlike routers and DNS providers, these software did not ... Further analysis revealed that Norton relies on .. Mobicip installs ..." -- These are very much results and I don't think you should already mention this in the intro (it makes the intro longer than necessary). I would follow (and part of this is already in place -- nicely done): context -> problem -> your study focus -> introduction-level approach (so the dns capturing etc) -> contributions
+
+%- The contributions of this work are as follows -- I'm counting three (maybe four) items. Please use latex itemize
+
+%- "their reliance on browser extensions and certificate-based interception rather than DNS manipulation" -- You could consider shortening this slightly (keeps the contribution bullet concise) "on techniques other than DNS manupulation"
+
+%- "Third, we discuss the implications" -- Not immediately clear to me as reader what this means. Is it an idea to shorten this too: "we weigh the trade-offs between effectiveness, transparency, and usability of DNS-based filtering."
+
+2. Background & Related Work
+
+- "both on the user side" -- probably more common to say "client side (e.g., on the user's device)"
+
+- "in the service side of the communication" -- how about "on the path of the communication" or "on a network level"
+
+- "The reasons for this low adoption rate are multiple, including ... Many of these tools that are difficult to use, too invasive or ineffective, and the balance between security and privacy" -- These read like claims to me but I don't see any supporting evidence in the form of a citation. The entire background and related work section seems light on citations and references.bib only contains an entry for tranco. Did you forget to commit the file or do these need to be backfilled still?
+
+- "Additonally, parental control tools often ..." -- There is repetition here w.r.t. the abstract and introduction, where you already said this because the black-box nature of solutions is part of the problem statement.  
+
+- "Over 50\% of children .. and the balance between security and privacy" -- I think it's very useful to cite stats on mobile use among children, but this is perhaps better done in the intro because it children being increasingly online stresses the need to adequately protect them.
+
+- I wonder why you mention the part about adoption of parental control systems. Does the reader need to know that the adoption is low? You mention three factors for low adoption: usability, invasiveness, ineffectiveness. You don't connect any of these to your study explicitly. Does ineffectiveness here mean something similar to what you reveal (i.e., inconsistent and arbitary filtering)? If so, I suppose you could perhaps connect your findings to this background/rw. I think you would have to be specific then. For example "as our results will show later, systems can indeed be ineffective, for example when filtering rules are not consistently when the level of protection is increased"  
+
+- "Over-blocking and under-blocking: Studies have shown that DNS filtering can block websites .." -- From this I understand there is related work that looked at over- and under-blocking. This is something your paper also does. In cases such as this, it's generally a good idea to make the reader understand how what you do is different or advances the state of the art, since reviewers will try to form an understanding about which parts are novel and which are incremental (if any). This could be a matter of: "In this paper we also find that ... Differently from [citation], we additionally ..." Another option is: "some studies have shown that over-blocking and under-blocking occurs, however they did not investigate this in depth." I don't see the citation so I'm not sure which fits best (if any).
+
+- "few of studies have analyzed parental controls ... particularly focusing on performance or implementation differences across different parental controls solutions." -- This seems at odd with what you said before: works have looked at over- and under-blocking.
+
+- I generally like the amount of background and related work info (section is a bit unpolished though). Having said that, the transition between BG and RW is a bit blurry. Maybe adding references will fix this, but I would also add some structure with pseudo subsections (I often use {\bf pseudo-name} -- sentence starts right after) 
+
+
+3. Methodology
+
+- "Parental controls are typically marketed with ..." -- I don't think this is a methodological aspect. Why not say: "In this section we first explain how we made a selection of parental control systems to study and then provide details on our measurement setup."
+
+- "on retail platforms such as Amazon" -- "such as" is rather risky here. Why not mention all platforms considered? Readers will want to know every detail of your methodology.
+
+- You have subsections for routers, software, etc. I wonder why you do not for "control mechanism selection" and "input to investigate filtering behaviors"
+
+- "TP-Link implements a basic keyword-based ... ASUS redirects DNS queries to ... The Netgear router uses ..." -- These read like results to me that offer an understanding about the inner workings of the control systems. As such, I would present these observations somewhere in the results section not here.
+
+- "We observed inconsistent signs of activity .. " -- Same as previous comment: this is a result
+
+4. Dataset
+
+- "we used the Tranco [1] top 1 million list" -- As mentioned the Tranco and Cisco data under the methodology section already there is now repetition between these sections. Is your intention to put all methodological aspects, including the data your methodology relies on, in section 3, or do you want a separate dataset section? Given that you have some dataset-related characteristics to present here (e.g., the observations about categories in Cisco data) I think you should have two sections
+
+- "and were therefore aggregated to remove redundancy" -- I would try to avoid saying "the results of reclassification" and "we remove redundancy" because a nasty reviewer could shoot at this. I think you can simply defend your methodological choices with more or less what you've started writing down already: "Cisco maintains a more fine-grained classification, for example by having pornography and dating sites be separate classes. For our purposes, through lens of a parental control system, these are all adult websites and unsuitable for young children. As such, we collate these Cisco classes into a single 'adult' category." (I would not name your aggregate class "Adult Content" if Cisco already has an "Adult Content" class. You could use "Adult" or "Mature Content" or w/e) 
+
+5. Results
+
+- The results section looks like a wall of text at the moment. It needs some structure. I would start the section with subsections dedicated to explaining, based on your observations, how the various control systems work internally. Perhaps keep this at a high level at first. Start with routers then DNS-based then software. This is at the level of "Based on our observations, routers intercept DNS traffic", "third-party DNS resolvers filter names", the software uses other techniques. Then go into the nitty-gritty technical details (that you inferred) of each and every system. Then present the results on over- and under-blocking, inconsistent filtering.

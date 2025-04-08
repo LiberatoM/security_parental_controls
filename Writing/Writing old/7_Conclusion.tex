@@ -1,0 +1,15 @@
+In this work, we conducted a measurement and analysis of parental control systems across three types of deployments: routers, DNS providers, and software. Using a classified list of domains, we assessed how each system handled inappropriate and sensitive content, revealing differences in both coverage and implementation strategies.
+
+% While DNS-based solutions tended to offer consistent category-based filtering, router-based parental controls varied significantly, some applying keyword-based blocking rather than true content categorization. 
+% The software solution we analyzed relies on an opaque blocking mechanisms, including browser extensions and potential traffic interception, but its exact mode of operation remains unclear.
+
+Our findings show that the effectiveness of parental controls remains uneven across tools and vendors, with no single solution offering comprehensive protection, although DNS-based filtering seems to have a consistently higher efficiency. Often, high effectiveness in blocking inappropriate and sensitive content is accompanied by overblocking for all other categories, mostly among popular domains. And while one could argue that, for the sake of the children, blocking more is better, the effect this has on the general user experience and therefore the adoption of parental controls, remains unclear. In addition, we realized that an higher filtering granularity does not necessarily mean a better blocking effectiveness.
+In the case of Netgear’s router-based controls, some domains blocked at lower levels of control are allowed at levels that should have been more restrictive. By comparison, a simple keyword-based solution like the one implemented by TP-Link easily outperform more complex approaches for categories like Adult Content and Gambling. These inconsistencies, combined with the lack of transparency in how filtering decisions are made, highlight the limitations of current parental control solutions, which work as a black-box without sufficient insight on their blocking strategies.
+
+% Our measurement approach proved effective in uncovering key behavioral patterns across systems, but it remains limited in scope, as it relies on a relatively small set of representative solutions and a single domain list.
+% Future research and development is essential to improve these tools' reliability and increase users trust.
+
+
+In regard to possible future work, there several feasible directions. As indicated in Sec.~\ref{sec:methodology}, our study focused on a set of market leading parental control solutions. However, we realize this ecosystem is in continuous evolution. In particular, our study could be expanded to cover a broader range of parental control systems, including ISP-level filtering solutions, mobile devices and newer AI-based tools.
+Finally, improving classification coverage and accuracy in web classification remains an open challenge. 
+Using multiple classification systems or developing a custom classifier trained for child safety could reduce the number of unknown websites and improve the analysis of blocking behavior.

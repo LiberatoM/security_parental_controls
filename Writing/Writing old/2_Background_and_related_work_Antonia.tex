@@ -1,0 +1,94 @@
+\subsection{Parental Controls}
+Parental control tools are designed to assist parents in monitoring and managing their children’s online activities, with the goal of protecting children from potential online risks.
+Risks include exposure to harmful content, cyberbullying, and excessive screen time, as such risks can impact children's cognitive, emotional, and social development \cite{livingstone_4cs_2021}.
+
+Prior work has categorized online risks using the ``4Cs'' framework (Content risk, Contact risk, Conduct risk, and Contract risk).
+This framework is used to distinguish between exposure to harmful material, interaction with potentially dangerous individuals, engagement in risky behavior, and privacy issues or commercial exploitation~\cite{livingstone_4cs_2021, bik_classifying_2023}.
+Parental control tools can help mitigate these risks, targeting content categories such as pornographic or violent content, hate speech, and drug or gambling-related websites. 
+These are frequently highlighted in risk taxonomies studies as high-priority threats to children online~\cite{alqahtani_state_2017, machado_fernandes_taxonomy_2022}.
+%While parental control tools do not have a universal categorization system, these topics are widely considered key targets for most parental control tools.
+
+Parental control tools typically include features such as content filtering, time management, and tracking the location and activities of specific devices. They can be deployed on various platforms (e.g. computers, mobile devices, video games consoles, and televisions), and in this case they are called \emph{device-specific} controls. If the controls target a specific application on a device (e.g. a browser), we talk about \emph{application-specific} controls. Finally, we have \emph{network-based} controls, which aim at blocking undesirable activity (e.g. requests to an unappropriated website) at the network level. This class of parental control is implemented, for example, on a router or by specialized software. This paper focuses on network-based parental controls and their content-filtering functionalities.
+% They are available in different forms of implementations, including network-level solutions (such as ISP or router-based parental controls) and software applications installed directly on specific devices.
+
+% Like other forms of Internet censorship \todo[inline]{Antonia: Can it be a little strong to say that? In any case, references about parental control deployment are needed. I do not get the rest.}, parental controls can be deployed in different parts of the network topology, both on the user side (e.g. parental control software installed on a device) or in the service side of the communication (e.g. ISP and DNS)\cite{rfc9505}.
+
+%ANNA removed because it is a long repetition of what said before, then we go even in more details into Network-based
+% Parental controls can be generally classified into three main types:
+% \begin{itemize}
+% 	\item Device-specific controls, which apply settings across an entire device (e.g., apps installed by parents in children's phones that monitor or restrict internet access)
+% %
+% 	\item Application-specific controls, which limit content within specific applications (e.g., Youtube restricting inappropriate videos on children's accounts).
+% %
+% 	\item Network-specific parental controls, provided by routers, DNS services or ISPs, that enforce content restrictions at the network level.
+% \end{itemize}
+% 
+
+
+\subsection{Network-Based Parental Controls}
+Network-based parental controls are a subset of parental controls that can be implemented using a variety of techniques. 
+% They can be provided as a service by routers, ISPs or even external companies, such as Cloudflare, which offers a DNS service with built-in filtering features.
+These solutions typically rely on methods such as IP blocking, URL filtering, Deep Packet Inspection (DPI) and DNS filtering\cite{noauthor_overview_nodate}. 
+Each method serves a different purpose in restricting access to online content. IP-based blocking blocks traffic to specific IP addresses.
+However, this method can be overly broad, as many unrelated websites may share the same IP, leading to possibly significant overblocking.
+URL-based filtering inspects the full web address (URL) being accessed and blocks or allows the request based on a filter list.
+It is more precise than IP blocking but requires deeper traffic inspection, which can be hindered by encryption.
+Deep Packet Inspection (DPI) inspects not only the headers but also the content of packets to identify content to be blocked. While precise, DPI is resource-intensive and privacy-invasive. A different approach, DNS filtering, act on the Domain Name System, a fundamental service that translates human-readable domain names into numerical IP addresses, enabling users to access websites. 
+DNS filtering works by intercepting DNS queries and modifying the responses (DNS injection), blocking access to restricted websites by preventing the resolution of their DNS queries.
+This technique is relatively easy to implement and can be done at various levels, including public, ISP, and open DNS resolvers, making it a versatile tool for content control\cite{cheng_-depth_2022}.
+
+
+
+
+
+\subsection{Related work}
+
+Despite the increasing availability of parental control tools, the adoption rate remains relatively low \cite{ardito_designing_2021}.
+For instance, the internation survey Global Kids Online shows that parental controls are used by less than 3\% of parents in several countries, and EU Kids Online data showed usage ranging from 11\% to around 33\% across European nations\cite{stoilova_parental_2024}.
+% Over 50\% of children own a smartphone by age 11, yet only a fraction of parents use parental control solutions, most commonly in the form of device-based applications (Usability, security and privacy)~\cite{sun_are_2023}.
+The reasons for this low adoption rate are multiple, including the balance between security, privacy and usability.
+Parental control tools are at times perceived as difficult to use, too invasive or ineffective \cite{ardito_designing_2021}.
+In addition, these tools often operate as black-box systems, offering limited insight into their operations, including which types of content are blocked and how such content is identified\cite{ali_betrayed_2020}.
+The lack of transparency raises concerns about the actual protection provided and the overall impact on user trust. While recent tools increasingly integrate AI, edge computing, and cloud-based monitoring to improve filtering accuracy and usability\cite{razak_piwall_2024, ramezanian_parental_2021}, these advancements do not fully resolve the conflict between functionality, transparency, and privacy.
+In this paper, we investigate the blocking behavior of parental controls, in particular focusing on over-blocking or under-blocking of content.
+% In fact, many parental control solutions continue to exhibit security and privacy vulnerabilities, including opaque data practices, potential information leakage, and susceptibility to adversarial misuse\cite{ali_betrayed_2020}.
+
+% The broader field of parental control has received more attention in terms of user experience and effects on family dynamics, often in the form of user-focused surveys. 
+% For example, Stoilova et al.~\cite{stoilova_parental_2024} shows that real-world adoption remains low, often due to usability challenges.
+% Similarly, Iftikhar et al.~\cite{ardito_designing_2021} highlights how design complexity and privacy concerns influence adoption decisions.
+% Wang et al.~\cite{wang_protection_2021} examines how the design of mobile parental control apps influences user perceptions, focusing on feedback mechanisms, transparency, and parent-child communication.
+% These studies show the importance of usability and design in shaping the effectiveness of parental control tools.
+
+The broader field of parental control has received attention in terms of user experience and effects on family dynamics, often in the form of user-focused surveys \cite{stoilova_parental_2024,ardito_designing_2021,wang_protection_2021}
+However, to the best of our knowledge, only a limited number of studies have examined how parental controls work from a technical point of view. 
+Ali et al.~\cite{ali_parental_2021} investigates the security and privacy risks of various parental control implementations, including router-based solutions.
+Feal et al.~\cite{feal_angel_2020} reveals serious privacy and security flaws in mobile parental control tools and Ali et al.~\cite{ali_betrayed_2020} claims to be the first comprehensive study analyzing different parental control solutions across multiple platforms.
+These findings highlight how parental control internal mechanisms remain poorly explored and evaluated.
+This work aims to addresses this gap by a network-level analysis of their real-world behavior.
+
+
+
+At the technical level, several of the approaches supporting network-based parental control have been investigated in the context of other application areas.
+%\todo[inline]{Ale: There are a couple of cases in which you refer to citations as subjects or objects, which I think is not very correct. For examples, the sentence: "Works like~\cite{feal-tnsm-2021, ramanathan-imc-2020, li-pam-2021, metcalf-wiscs-2015} investigated ..." should be something like: "The use and characteristics of IP-based blocklists has been investigated~\cite{feal-tnsm-2021, ramanathan-imc-2020, li-pam-2021, metcalf-wiscs-2015}"}
+Works like~\cite{feal-tnsm-2021, ramanathan-imc-2020, li-pam-2021, metcalf-wiscs-2015} investigated the use and characteristics of IP-based blocklists. Feal et al.~\cite{feal-tnsm-2021} investigate 2093 free and open source IP-based blocklists to gain a better understanding about, among others, their coverage, liveliness and scope. Ramanathan et al.~\cite{ramanathan-imc-2020} focus on the interplay between IP-blocking and IP address reuse, arguing that IP-based blocking could lead to un-intended blocking of legitimate users. The work of Li at al.~\cite{li-pam-2021} uses network measurements to infer the use of IP blocklists in the wild. URL filtering and DPI are often studied in the context of Internet censorship, as for example in ~\cite{rfc9505,bock-usenix-2021, dalek-imc-2013, mcdonald-imc-2018}. Bock et al.~\cite{bock-usenix-2021} report that censorship middleboxes can react to TLS server name indication (SNI) fields. At the DNS level, a recent study by Liu et al~\cite{liu-ndss-2024} investigate the security implications of relying on protective DNS services, namely DNS resolvers that implement content filtering. Our paper also includes DNS-based filtering, but focuses instead on the filtering of content harmful to young Internet users. DNS-filtering has also been studied in the context of newer DNS implementations (e.g. DoH~\cite{vekshin_doh_2020}) and to assess the risk of content underblocking~\cite{cheng_-depth_2022}, or overblocking~\cite{hoang_how_2021,hoang_measuring_2022}.
+%URL filtering
+%DPI
+%DNS FILTERING
+
+
+
+% This approach is effective as it is lightweight and does not require installation on the user's device. 
+% However, DNS-based research found that DNS filtering have limitations:
+
+% - Over-blocking and under-blocking: Studies have shown that DNS filtering can fail to block access to certain content (underblocking)\cite{cheng_-depth_2022}, while DNS injection can also cause collateral damage, interfering with unrelated queries\cite{ververis_understanding_2015}.
+
+% - Avoidance techniques: Encrypted DNS protocols such as DNS over HTTPS (DoH) and DNS over TLS (DoT) can allow users to bypass DNS-based filtering mechanisms by encrypting the content of DNS requests\cite{vekshin_doh_2020, bock-usenix-2021}.
+
+% - Alternative resolvers:  Certain open DNS resolvers may remain unaffected even when local DNS filtering is enforced, reducing the reliability of this kind of control\cite{cheng_-depth_2022}.
+% %(INTERNET SOCIETY PERSPECTIVES ON INTERNET CONTENT BLOCKING) CAN BE GOOD FOR MORE MATERIAL ON BLOCKING IN GENERAL
+
+% While DNS filtering is common in router-based parental controls and DNS is widely researched in many of its aspects, including its use for censorship\cite{cheng_-depth_2022}, there is a lack of published research comparing how different parental control providers implement filtering policies.
+% There is a substantial body of work analyzing DNS-based filtering as a mechanism for online content control, particularly in the context of national-level censorship.
+% Studies such as Hoang et al.~\cite{hoang_how_2021}, Cheng et al.~\cite{cheng_-depth_2022} and Hoang et al.~\cite{hoang_measuring_2022} show that DNS filtering systems are prone to overblocking, inconsistent enforcement, and circumvention. 
+% However, these studies largely focus on censorship regimes or national infrastructure. 
+% There is comparatively little peer-reviewed work examining how DNS filtering is implemented specifically within  parental control tools.

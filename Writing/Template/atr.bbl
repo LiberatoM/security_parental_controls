@@ -1,0 +1,174 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{9}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{}, \showDOI{}, and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showDOI}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showDOI #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showDOI      \undefined \def \showDOI       #1{#1}\fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[Cicalese et~al\mbox{.}(2021)]%
+        {anycast_cdn}
+\bibfield{author}{\bibinfo{person}{Danilo Cicalese}, \bibinfo{person}{Danilo
+  Giordano}, \bibinfo{person}{Alessandro Finamore}, \bibinfo{person}{Marco
+  Mellia}, \bibinfo{person}{Maurizio Munafò}, \bibinfo{person}{Dario Rossi},
+  {and} \bibinfo{person}{Diana Joumblatt}.} \bibinfo{year}{2021}\natexlab{}.
+\newblock \bibinfo{title}{A First Look at Anycast CDN Traffic}.
+\newblock
+\newblock
+\showeprint[arxiv]{1505.00946}~[cs.NI]
+\urldef\tempurl%
+\url{https://arxiv.org/abs/1505.00946}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Cicalese et~al\mbox{.}(2015)]%
+        {igreedy}
+\bibfield{author}{\bibinfo{person}{Danilo Cicalese}, \bibinfo{person}{Diana
+  Joumblatt}, \bibinfo{person}{Dario Rossi}, \bibinfo{person}{Marc-Olivier
+  Buob}, \bibinfo{person}{Jordan Augé}, {and} \bibinfo{person}{Timur
+  Friedman}.} \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{A fistful of pings: Accurate and lightweight
+  anycast enumeration and geolocation}. In \bibinfo{booktitle}{\emph{2015 IEEE
+  Conference on Computer Communications (INFOCOM)}}.
+  \bibinfo{pages}{2776--2784}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1109/INFOCOM.2015.7218670}
+\showDOI{\tempurl}
+
+
+\bibitem[Fan et~al\mbox{.}(2013)]%
+        {chaos}
+\bibfield{author}{\bibinfo{person}{Xun Fan}, \bibinfo{person}{John Heidemann},
+  {and} \bibinfo{person}{Ramesh Govindan}.} \bibinfo{year}{2013}\natexlab{}.
+\newblock \showarticletitle{Evaluating anycast in the domain name system}. In
+  \bibinfo{booktitle}{\emph{2013 Proceedings IEEE INFOCOM}}.
+  \bibinfo{pages}{1681--1689}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1109/INFCOM.2013.6566965}
+\showDOI{\tempurl}
+
+
+\bibitem[Lindqvist and Abley(2006)]%
+        {rfc4786}
+\bibfield{author}{\bibinfo{person}{Kurt~Erik Lindqvist} {and}
+  \bibinfo{person}{Joe Abley}.} \bibinfo{year}{2006}\natexlab{}.
+\newblock \bibinfo{title}{{Operation of Anycast Services}}.
+\newblock \bibinfo{howpublished}{RFC 4786}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.17487/RFC4786}
+\showDOI{\tempurl}
+
+
+\bibitem[NCC(2025)]%
+        {ipmap}
+\bibfield{author}{\bibinfo{person}{RIPE NCC}.} \bibinfo{year}{2025}\natexlab{}.
+\newblock \bibinfo{title}{IPmap}.
+\newblock \bibinfo{howpublished}{\url{https://ipmap.ripe.net/}}.
+\newblock
+\newblock
+\shownote{[Accessed 31-03-2025]}.
+
+
+\bibitem[Pascual et~al\mbox{.}(2024)]%
+        {hunter}
+\bibfield{author}{\bibinfo{person}{Hugo Pascual}, \bibinfo{person}{Jose~M. {del
+  Alamo}}, \bibinfo{person}{David Rodriguez}, {and} \bibinfo{person}{Juan~C.
+  Dueñas}.} \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{Hunter: Tracing anycast communications to uncover
+  cross-border personal data transfers}.
+\newblock \bibinfo{journal}{\emph{Computers \& Security}}
+  \bibinfo{volume}{141} (\bibinfo{year}{2024}), \bibinfo{pages}{103823}.
+\newblock
+\showISSN{0167-4048}
+\urldef\tempurl%
+\url{https://doi.org/10.1016/j.cose.2024.103823}
+\showDOI{\tempurl}
+
+
+\bibitem[Sommese et~al\mbox{.}(2020)]%
+        {manycast2}
+\bibfield{author}{\bibinfo{person}{Raffaele Sommese}, \bibinfo{person}{Leandro
+  Bertholdo}, \bibinfo{person}{Gautam Akiwate}, \bibinfo{person}{Mattijs
+  Jonker}, \bibinfo{person}{Roland van Rijswijk-Deij}, \bibinfo{person}{Alberto
+  Dainotti}, \bibinfo{person}{KC Claffy}, {and} \bibinfo{person}{Anna
+  Sperotto}.} \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{MAnycast2: Using Anycast to Measure Anycast}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the ACM Internet Measurement
+  Conference}} (Virtual Event, USA) \emph{(\bibinfo{series}{IMC '20})}.
+  \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{456–463}.
+\newblock
+\showISBNx{9781450381383}
+\urldef\tempurl%
+\url{https://doi.org/10.1145/3419394.3423646}
+\showDOI{\tempurl}
+
+
+\bibitem[Wei and Heidemann(2018)]%
+        {flipping}
+\bibfield{author}{\bibinfo{person}{Lan Wei} {and} \bibinfo{person}{John
+  Heidemann}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{Does Anycast Hang Up on You (UDP and TCP)?}
+\newblock \bibinfo{journal}{\emph{IEEE Transactions on Network and Service
+  Management}} \bibinfo{volume}{15}, \bibinfo{number}{2}
+  (\bibinfo{year}{2018}), \bibinfo{pages}{707--717}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1109/TNSM.2018.2804884}
+\showDOI{\tempurl}
+
+
+\bibitem[Zhou et~al\mbox{.}(2023)]%
+        {regional}
+\bibfield{author}{\bibinfo{person}{Minyuan Zhou}, \bibinfo{person}{Xiao Zhang},
+  \bibinfo{person}{Shuai Hao}, \bibinfo{person}{Xiaowei Yang},
+  \bibinfo{person}{Jiaqi Zheng}, \bibinfo{person}{Guihai Chen}, {and}
+  \bibinfo{person}{Wanchun Dou}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{Regional IP Anycast: Deployments, Performance, and
+  Potentials}. In \bibinfo{booktitle}{\emph{Proceedings of the ACM SIGCOMM 2023
+  Conference}} (New York, NY, USA) \emph{(\bibinfo{series}{ACM SIGCOMM '23})}.
+  \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{917–931}.
+\newblock
+\showISBNx{9798400702365}
+\urldef\tempurl%
+\url{https://doi.org/10.1145/3603269.3604846}
+\showDOI{\tempurl}
+
+
+\end{thebibliography}

@@ -1,0 +1,116 @@
+% !TEX root = atr.tex
+
+@article{hunter,
+title = {Hunter: Tracing anycast communications to uncover cross-border personal data transfers},
+journal = {Computers \& Security},
+volume = {141},
+pages = {103823},
+year = {2024},
+issn = {0167-4048},
+doi = {https://doi.org/10.1016/j.cose.2024.103823},
+url = {https://www.sciencedirect.com/science/article/pii/S016740482400124X},
+author = {Hugo Pascual and Jose M. {del Alamo} and David Rodriguez and Juan C. Dueñas},
+keywords = {Personal data, Data protection, International transfers, Traceability, IP geolocation, Anycast, Transparency, Privacy, GDPR, Compliance},
+abstract = {Cross-border personal data transfers are heavily regulated worldwide, with data protection authorities imposing huge fines on organizations that fail to meet their strict compliance requirements. However, network-level optimizations such as anycast addresses were not designed with personal data in mind, and their use may unwittingly divert personal data out of a legal boundary. This paper describes Hunter, an automated method to trace anycast communications and identify those threatening data protection compliance. We have applied Hunter in the wild to a set of Android apps to discover that all apps observed sending personal data to anycast addresses eventually carry out international transfers but fail to disclose them in their privacy policies. Our findings suggest that using anycast addresses to transmit personal data generally results in data protection compliance issues.}
+}
+
+@inproceedings{regional,
+author = {Zhou, Minyuan and Zhang, Xiao and Hao, Shuai and Yang, Xiaowei and Zheng, Jiaqi and Chen, Guihai and Dou, Wanchun},
+title = {Regional IP Anycast: Deployments, Performance, and Potentials},
+year = {2023},
+isbn = {9798400702365},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3603269.3604846},
+doi = {10.1145/3603269.3604846},
+abstract = {Recent studies show that an end system's traffic may reach a distant anycast site within a global IP anycast system, resulting in high latency. To address this issue, some private and public CDNs have implemented regional IP anycast, a technique that involves dividing content-hosting sites into geographic regions, announcing a unique IP anycast prefix for each region, and utilizing DNS and IP-geolocation to direct clients to CDN sites in their corresponding geographic regions. In this work, we aim to understand how a regional anycast CDN partitions its sites and maps its customers' clients to its sites, and how a regional anycast CDN performs compared to its global anycast counterpart. We study the deployment strategies and the performance of two CDNs (Edgio and Imperva) that currently deploy regional IP anycast. We find that both Edgio and Imperva partition their sites and clients following continent or country borders. Furthermore, we compare the client latency distribution in Imperva's regional anycast CDN with its similar-scale DNS global anycast network, while accounting for and mitigating the relevant deployment differences between the two networks. We find that regional anycast can effectively alleviate the pathology in global IP anycast where BGP routes clients' traffic to distant CDN sites. However, DNS mapping inefficiencies, where DNS returns a sub-optimal regional IP anycast address that does not cover a client's low-latency CDN sites, can harm regional anycast's performance. Finally, we show what performance benefits regional IP anycast can achieve with a latency-based region partition method using the Tangled testbed. When compared to global anycast, regional anycast significantly reduces the 90th percentile client latency by 58.7\% to 78.6\% for clients across different geographic areas.},
+booktitle = {Proceedings of the ACM SIGCOMM 2023 Conference},
+pages = {917–931},
+numpages = {15},
+keywords = {routing, IP anycast, regional anycast},
+location = {New York, NY, USA},
+series = {ACM SIGCOMM '23}
+}
+
+@misc{ipmap,
+	author = {RIPE NCC},
+	title = {IPmap},
+	howpublished = {\url{https://ipmap.ripe.net/}},
+	year = {2025},
+	note = {[Accessed 31-03-2025]},
+}
+
+@INPROCEEDINGS{chaos,
+  author={Fan, Xun and Heidemann, John and Govindan, Ramesh},
+  booktitle={2013 Proceedings IEEE INFOCOM}, 
+  title={Evaluating anycast in the domain name system}, 
+  year={2013},
+  volume={},
+  number={},
+  pages={1681-1689},
+  keywords={Servers;Chaos;Peer-to-peer computing;IP networks;Standards;Extraterrestrial measurements;Routing},
+  doi={10.1109/INFCOM.2013.6566965}}
+
+@ARTICLE{flipping,
+  author={Wei, Lan and Heidemann, John},
+  journal={IEEE Transactions on Network and Service Management}, 
+  title={Does Anycast Hang Up on You (UDP and TCP)?}, 
+  year={2018},
+  volume={15},
+  number={2},
+  pages={707-717},
+  keywords={Routing;Servers;IP networks;Chaos;Load management;Streaming media;Internet;Computer network reliability;content distribution networks;domain name system;IP networks;network topology},
+  doi={10.1109/TNSM.2018.2804884}}
+
+@misc{rfc4786,
+    series =    {Request for Comments},
+    number =    4786,
+    howpublished =  {RFC 4786},
+    publisher = {RFC Editor},
+    doi =       {10.17487/RFC4786},
+    url =       {https://rfc-editor.org/info/rfc4786},
+    author =    {Kurt Erik Lindqvist and Joe Abley},
+    title =     {{Operation of Anycast Services}},
+    pagetotal = 24,
+    year =      2006,
+    month =     dec,
+    abstract =  {As the Internet has grown, and as systems and networked services within enterprises have become more pervasive, many services with high availability requirements have emerged. These requirements have increased the demands on the reliability of the infrastructure on which those services rely. Various techniques have been employed to increase the availability of services deployed on the Internet. This document presents commentary and recommendations for distribution of services using anycast. This document specifies an Internet Best Current Practices for the Internet Community, and requests discussion and suggestions for improvements.},
+}
+
+@inproceedings{manycast2,
+author = {Sommese, Raffaele and Bertholdo, Leandro and Akiwate, Gautam and Jonker, Mattijs and van Rijswijk-Deij, Roland and Dainotti, Alberto and Claffy, KC and Sperotto, Anna},
+title = {MAnycast2: Using Anycast to Measure Anycast},
+year = {2020},
+isbn = {9781450381383},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3419394.3423646},
+doi = {10.1145/3419394.3423646},
+abstract = {Anycast addressing - assigning the same IP address to multiple, distributed devices - has become a fundamental approach to improving the resilience and performance of Internet services, but its conventional deployment model makes it impossible to infer from the address itself that it is anycast. Existing methods to detect anycast IPv4 prefixes present accuracy challenges stemming from routing and latency dynamics, and efficiency and scalability challenges related to measurement load. We review these challenges and introduce a new technique we call "MAnycast2" that can help overcome them. Our technique uses a distributed measurement platform of anycast vantage points as sources to probe potential anycast destinations. This approach eliminates any sensitivity to latency dynamics, and greatly improves efficiency and scalability. We discuss alternatives to overcome remaining challenges relating to routing dynamics, suggesting a path toward establishing the capability to complete, in under 3 hours, a full census of which IPv4 prefixes in the ISI hitlist are anycast.},
+booktitle = {Proceedings of the ACM Internet Measurement Conference},
+pages = {456–463},
+numpages = {8},
+location = {Virtual Event, USA},
+series = {IMC '20}
+}
+
+@INPROCEEDINGS{igreedy,
+  author={Cicalese, Danilo and Joumblatt, Diana and Rossi, Dario and Buob, Marc-Olivier and Augé, Jordan and Friedman, Timur},
+  booktitle={2015 IEEE Conference on Computer Communications (INFOCOM)}, 
+  title={A fistful of pings: Accurate and lightweight anycast enumeration and geolocation}, 
+  year={2015},
+  volume={},
+  number={},
+  pages={2776-2784},
+  keywords={Geology;Extraterrestrial measurements;Servers;Cities and towns;Airports;Unicast;IP networks},
+  doi={10.1109/INFOCOM.2015.7218670}}
+  
+  @misc{anycast_cdn,
+      title={A First Look at Anycast CDN Traffic}, 
+      author={Danilo Cicalese and Danilo Giordano and Alessandro Finamore and Marco Mellia and Maurizio Munafò and Dario Rossi and Diana Joumblatt},
+      year={2021},
+      eprint={1505.00946},
+      archivePrefix={arXiv},
+      primaryClass={cs.NI},
+      url={https://arxiv.org/abs/1505.00946}, 
+}

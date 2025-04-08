@@ -1,0 +1,99 @@
+% !TEX TS-program = pdflatexmk
+
+\documentclass[10pt,sigconf,letterpaper]{acmart}
+
+\usepackage{xspace}
+\usepackage{enumitem}
+\usepackage{footmisc}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{colortbl} % coloring in tables
+\usepackage{soul}
+
+% TODO change to anrw style
+
+%\setcopyright{acmlicensed}
+%\copyrightyear{2025}
+%\acmYear{2025}
+%\acmDOI{XXXXXXX.XXXXXXX} % TODO
+
+\renewcommand\footnotetextcopyrightpermission[1]{} % removes footnote with conference info
+\setcopyright{none}
+\settopmatter{printacmref=false, printccs=false, printfolios=true}
+ 
+ \begin{document}
+ \pagestyle{plain}
+ \pagenumbering{arabic}
+  
+ \title{Tracing Anycast: a Performance Assessment}
+
+ \newif\ifisanon
+
+\iftrue
+\newcommand{\raf}[1]{\textcolor{violet}{\noindent[Raf: #1]}}
+\else
+\newcommand{\raf}[1]{}
+\fi
+ 
+\newcommand{\ie}{\textit{i.e.}}
+\newcommand{\etc}{\textit{etc.}}
+\newcommand{\eg}{\textit{e.g.}}
+ 
+%flip  here to disable anonymization in the paper
+%\isanonfalse
+\isanontrue
+
+\ifisanon
+
+\author{Paper \#A, B pages body, C pages total}
+\else 
+\author{blaat
+}
+
+\fi
+
+\def \manycasttwo  {MAnycast\textsuperscript{2}\xspace}
+\def \manycast  {MAnycastR\xspace}
+
+\begin{abstract}
+Anycast allows for providing services from multiple, geographically distant, Points of Presence (PoPs) using a single IP address to \eg, provide increased resilience.
+However, due to its opaqueness it is often unknown which addresses are provided using anycast and, if so, where its PoPs are located.
+As anycast is widely used for \eg, critical Internet infrastructure like the DNS, there have been efforts in mapping anycast deployments.
+The current state-of-the-art, a technique called iGreedy, relies on latency measurements. % to detect anycast and allows for geolocating PoPs using trilateration similar to conventional unicast IP geolocation.
+However, such measurements are noisy as they suffer from \eg, network propagation delays.
+
+Previous work has shown that traceroute, a technique that reveals the individual hops a packet traverses, can be used to detect anycast. % as distinct PoPs will have different neighboring routers.
+Furthermore, it can locate anycast using available geolocation data of hops near anycast PoPs. 
+
+This work is the first to assess the performance of the traceroute technique at scale by performing it towards O(4) anycast prefixes.
+Our results show ...
+We provide an extensive validation of the traceroute technique, publicly release our code, and release an extensive geolocation dataset of anycast networks.
+
+\end{abstract}
+
+\maketitle
+
+\input{introduction.tex}
+
+\input{background.tex}
+
+\input{methodology.tex}
+
+\input{results.tex}
+
+\input{discussion.tex}
+
+\section{Acknowledgements}
+kc would like us to acknowledge the GMI grant.
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{atr}
+
+%\appendix
+
+%\input{appendix.tex}
+
+\end{document}
+\endinput
+

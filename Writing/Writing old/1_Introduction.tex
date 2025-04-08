@@ -1,0 +1,54 @@
+% Go and look what I wrote on the SOK in the section about parental control?
+% How specific should this section be? 
+
+The Internet has become an integral part of children’s lives, offering a variety of educational resources, entertainment, and opportunities for social interaction.
+However, this increased digital presence comes with significant risks.
+%\todo[inline]{Anna: Changed the sentence ``Children are potentially exposed to harmful content, online predators, privacy invasions, and cyberbullying.'' into the one below, otherwise it would bring up the question of why listing those specific 4 threats and not other.}
+Children are exposed to a wide range of online risks, including age-inappropriate content, online predators, privacy invasions, and cyberbullying. 
+These dangers are documented in numerous studies and reports, such as those by UNICEF\cite{mariya_stoilova_investigating_2021} and Amnesty International\cite{amnesty_driven_2023}.
+In response, a wide range of parental control tools have become available, promising to safeguard children by filtering inappropriate content, monitoring online activities, setting time restrictions and blocking access to age-inappropriate websites.
+% These tools are widely used, according to a Pew Research Center report\cite{turner_parenting_2020}, over 70\% of parents of young children in the U.S. report using some form of parental control.
+While parental control systems are an attractive solutions for parents, their effectiveness is difficult to verify due to a lack of transparency in how they operate. 
+Many parental control solutions present themselves as tools capable of addressing a wide range of risks, but they often function as black-box systems, operating while hiding their internal functioning. 
+As a consequence, users remain unaware of which content is being filtered, how filtering decisions are made, and whether these tools truly fulfill their promises. 
+This lack of transparency raises concerns about the actual protection provided, including the risk of under-blocking (where harmful sites remain accessible) and potential over-blocking (where legitimate sites are restricted), affecting user's trust.
+%\todo[inline]{Anna: the paragraph before is very well done!}
+
+%\todo[inline]{NOT SURE WETHER TO KEEP THIS MENTION OF THE SOK; Anna @Matteo: I think we do not need it. You already motivated your work above, and there will be the RW section for what the literature says} 
+%\st{In previous work, we conducted a systematization of knowledge (SOK) on online risks faced by children and the available mitigation strategies, including parental control technologies. 
+%We focused on solutions grounded(?) in computer science, particularly those involving data science and network analysis. 
+%Our findings highlighted a gap between what parental control tools claim to achieve and what is known about their real-world performance.
+%This gap motivated the present study, where we focus on the network-level operations of parental control solutions, investigating the techniques used by different providers and their effectiveness.}
+
+This paper aims to empirically analyze how parental control systems operate, focusing on their content blocking mechanisms and their blocking effectiveness.
+Our study spans a range of deployment types, including consumer routers, DNS-based services, and software solutions, to represent the diversity of tools currently available to families.
+
+% \todo[inline]{Anna: about the following sentences and the contributions: why is it important to differentiate between routers+DNS and software? It does make your story more complicated. Happy to talk about this}
+%\hl{Our analysis revealed that many of these functionalities, including content blocking and filtering, rely heavily on the Domain Name System (DNS) protocols.}
+%\hl{DNS filtering is a widely used technique in online security, where access to websites is controlled by intercepting and modifying DNS queries, often applied for blocking malicious websites or filtering inappropriate content (SOURCE). 
+%By capturing and analyzing packet traces (PCAPs) of DNS traffic, we aim to understand how these services block content, their accuracy, and their potential limitations.
+%DNS filtering, while effective, can lead to over-blocking, where legitimate content is unnecessarily restricted, or under-blocking, where harmful content slips through. 
+%Furthermore, since DNS requests are often intercepted or redirected by parental control systems, understanding how these tools manipulate DNS traffic is essential for assessing their impact on user safety.
+%On top of this we purchased subscirptions to two popular parental controls software solutions, Mobicip and Norton, to analyze their working(?) and measure their performance.
+%Unlike routers and DNS providers, these software did not exhibit clear and regular markers of network-level blocking.
+%Further analysis revealed that Norton relies on browser extensions to display block pages, while Mobicip installs its own root certificate and signs all visited websites, regardless of whether they are blocked or not.
+%This behaviour indidcates that these tools may function as local or transparent proxies, though this remains speculative, judging on the traffic patterns and empirical behaviour that we observed.}
+%\todo[inline]{Anna: the highlighted part is not needed for the introduction. There might be parts useful for other parts in the paper, so keep the text in comments}
+
+\todo[inline]{Anna @all: we need to revise those contributions once the results are in to ensure consistency}
+The contributions of this work are as follows:
+\begin{itemize}
+    \item We conduct an empirical analysis of parental control mechanisms implemented in three consumer routers, two DNS-based filtering services, and one software solution, using network traffic data collected during domain access attempts.
+    \item We evaluate the behavior of each system on a pre-classified list of popular domains, identifying what content is blocked and inconsistencies or anomalies in the blocking logic.
+    \item We document the techniques these systems appear to use for filtering, such as DNS manipulation, keyword matching, and application-level interception, and reflect on their transparency and reliability.
+    % appear to due to the fact that we don't knwo about norton
+\end{itemize}
+
+
+This paper is organized as follows:
+Section~\ref{sec:rw} provides background information and reviews relevant literature on parental control technologies. 
+Section~\ref{sec:methodology} details our experimental setup and data collection process, while in 
+Section~\ref{sec:dataset} we describe the domain list used to evaluate blocking behavior. 
+In Section~\ref{sec:results}, we present our findings on how different systems implement filtering and what types of content they block. 
+Section~\ref{sec:discussion} discusses the limitations of our study.
+Finally, Section~\ref{sec:conclusions} presents our conclusions.
