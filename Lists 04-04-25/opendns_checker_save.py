@@ -3,6 +3,7 @@ import time
 import sys
 import os
 
+
 dns_server = "208.67.222.123"  # OpenDNS FamilyShield DNS
 block_ip = "146.112.61.106"    # OpenDNS block page IP
 max_queries_per_day = 290000

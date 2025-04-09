@@ -57,19 +57,12 @@
 \def \manycast  {MAnycastR\xspace}
 
 \begin{abstract}
-Anycast allows for providing services from multiple, geographically distant, Points of Presence (PoPs) using a single IP address to \eg, provide increased resilience.
-However, due to its opaqueness it is often unknown which addresses are provided using anycast and, if so, where its PoPs are located.
-As anycast is widely used for \eg, critical Internet infrastructure like the DNS, there have been efforts in mapping anycast deployments.
-The current state-of-the-art, a technique called iGreedy, relies on latency measurements. % to detect anycast and allows for geolocating PoPs using trilateration similar to conventional unicast IP geolocation.
-However, such measurements are noisy as they suffer from \eg, network propagation delays.
-
-Previous work has shown that traceroute, a technique that reveals the individual hops a packet traverses, can be used to detect anycast. % as distinct PoPs will have different neighboring routers.
-Furthermore, it can locate anycast using available geolocation data of hops near anycast PoPs. 
-
-This work is the first to assess the performance of the traceroute technique at scale by performing it towards O(4) anycast prefixes.
-Our results show ...
-We provide an extensive validation of the traceroute technique, publicly release our code, and release an extensive geolocation dataset of anycast networks.
-
+Parental control systems are commonly marketed as tools to protect children from harmful online content. 
+However, these systems also claim to offer protection from security threats, a claim we want to test. 
+In this work, we evaluate the security filtering capabilities of seven parental control tools: Three consumer routers with built-in filtering (TP-Link, Netgear, ASUS), two DNS-based solutions (OpenDNS FamilyShield, DNS.eu Kids), and a software solutions (Norton Family). 
+Using five well-known threat intelligence sources — PhishTank, Phishing Army, Spamhaus DBL, URLhaus, and QuidsUp.
+We test whether each system blocks or allows known malicious domains. 
+\todo[inline]{finish after results}
 \end{abstract}
 
 \maketitle
@@ -85,7 +78,6 @@ We provide an extensive validation of the traceroute technique, publicly release
 \input{discussion.tex}
 
 \section{Acknowledgements}
-kc would like us to acknowledge the GMI grant.
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{atr}

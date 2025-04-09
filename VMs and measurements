@@ -1,7 +1,7 @@
-192.87.172.59 - VM1 DNSeu is running Quidsup
+192.87.172.59 - VM1 DNSeu 
 192.87.172.62 - VM2 is running DBL (1 million random, first half) on OpenDNS
-192.87.172.63 - VM3 DNSeu is running phishing army
-192.87.172.66 - VM4 is running DBL (1 million random, second half) on OpenDNS
+192.87.172.63 - VM3 DNSeu 
+192.87.172.66 - VM4 is running phishing army on OpenDNS
 
 192.87.172.94 is running Norton DBL
 192.87.172.100 is running Norton Phisihng army
@@ -24,7 +24,7 @@ NETGEAR ADULT is: reports/lan2_dbl-2025-04-07T11:59:21+02:00.csv (downloaded)
 TP-link NO PC is: reports/lan1_dbl-2025-04-04T17:33:21+02:00.csv (downloaded)
 TP-link PC is: DETERMINE LIST
 DNSeu (completed and downloaded)
-OpenDNS is: ONGOING (first half in VM2, second half in VM4)
+OpenDNS is: ONGOING (first half in VM2, second half completed)
 NORTON: ONGOING in .94
 
 Phishing Army:
@@ -36,8 +36,8 @@ NETGEAR TEEN is: reports/lan2_phishing_army-2025-04-08T11:00:34+02:00.csv (downl
 NETGEAR ADULT is: reports/lan2_phishing_army-2025-04-07T19:52:34+02:00.csv (downloaded)
 TP-link NO PC is: reports/lan1_phishing_army-2025-04-07T11:57:57+02:00.csv (downloaded)
 TP-link PC is: DETERMINE LIST
-DNSeu is:
-OpenDNS is:
+DNSeu (completed and downloaded)
+OpenDNS is: ONGOING (vm4)
 NORTON: ONGOING in .100
 
 URL abuse:
@@ -76,7 +76,7 @@ NETGEAR ADULT is: reports/lan2_quidsup-2025-04-07T19:47:21+02:00.csv (downloaded
 TP-link NO PC is: reports/lan1_quidsup-2025-04-07T12:20:46+02:00.csv (downloaded)
 TP-link PC is: DETERMINE LIST
 DNSeu (completed and downloaded)
-OpenDNS is:
+OpenDNS (completed and downloaded)
 NORTON:
 
 

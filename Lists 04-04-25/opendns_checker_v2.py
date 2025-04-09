@@ -3,6 +3,7 @@ import dns.asyncresolver
 import os
 import sys
 
+
 dns_server = "208.67.222.123"  # OpenDNS FamilyShield DNS
 block_ip = "146.112.61.106"
 max_queries_per_day = 290000

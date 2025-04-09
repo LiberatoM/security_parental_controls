@@ -3,6 +3,7 @@ import time
 import sys
 import os
 
+
 dns_server = "193.110.81.1"  # dns0.eu Kids DNS server
 max_queries_per_day = 290000
 
