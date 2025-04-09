@@ -12,7 +12,7 @@ def main():
     input_file = 'url_abuse.txt'    # Replace with your actual input filename
     output_file = 'url_abuse_clean.txt'  # Replace with your desired output filename
     remove_http_prefix(input_file, output_file)
-    print(f"Cleaned URLs written to: {output_file}")
+    print(f"Clean URL written to: {output_file}")
 
 if __name__ == '__main__':
     main()

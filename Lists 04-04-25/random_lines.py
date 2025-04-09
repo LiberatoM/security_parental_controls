@@ -10,10 +10,10 @@ def pick_random_lines(file_path, num_lines):
     # Get the file extension
     file_name, file_extension = os.path.splitext(file_path)
 
-    # Prepare output file name
+    # output file name
     output_file = f"{file_name}_random_lines{num_lines}{file_extension}"
 
-    # Handle CSV or TXT files
+    # CSV or TXT files
     if file_extension.lower() == '.csv':
         random_lines_from_csv(file_path, num_lines, output_file)
     elif file_extension.lower() == '.txt':

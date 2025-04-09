@@ -1,127 +1,99 @@
-%\documentclass{article} % Or some other class?  like 'report' or 'IEEEtran'
-\documentclass[conference]{IEEEtran}
-\usepackage[utf8]{inputenc}  
-\usepackage{graphicx}        
-\usepackage{cite} 
-\usepackage{amsmath, amssymb}
-\usepackage{hyperref}        
-%\usepackage{natbib}       
-\usepackage[colorinlistoftodos]{todonotes}
-\usepackage{booktabs}
-\usepackage{soul}        
-\usepackage{svg}
-\usepackage{hyperref}  
-\usepackage{cleveref}
+% !TEX TS-program = pdflatexmk
 
-\newcommand\Mycite[1]{%             
-  \citeauthor{#1}~\cite{#1}} 
-% Produce citation in style     John et al. [1]         using \Mycite{}
-% for citations in style        John et al. [2020]      change line 16 to    \citeauthor{#1}~[\citeyear{#1}]} 
+\documentclass[10pt,sigconf,letterpaper]{acmart}
+
+\usepackage{xspace}
+\usepackage{enumitem}
+\usepackage{footmisc}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{colortbl} % coloring in tables
+\usepackage{soul}
+
+% TODO change to anrw style
+
+%\setcopyright{acmlicensed}
+%\copyrightyear{2025}
+%\acmYear{2025}
+%\acmDOI{XXXXXXX.XXXXXXX} % TODO
+
+\renewcommand\footnotetextcopyrightpermission[1]{} % removes footnote with conference info
+\setcopyright{none}
+\settopmatter{printacmref=false, printccs=false, printfolios=true}
+ 
+ \begin{document}
+ \pagestyle{plain}
+ \pagenumbering{arabic}
   
-\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
-    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
-    
-\begin{document}
+ \title{Tracing Anycast: a Performance Assessment}
 
-\title{To Block Or Not To Block? Evaluating Parental Controls Across Routers, DNS Services, and Software}
+ \newif\ifisanon
 
+\iftrue
+\newcommand{\raf}[1]{\textcolor{violet}{\noindent[Raf: #1]}}
+\else
+\newcommand{\raf}[1]{}
+\fi
+ 
+\newcommand{\ie}{\textit{i.e.}}
+\newcommand{\etc}{\textit{etc.}}
+\newcommand{\eg}{\textit{e.g.}}
+ 
+%flip  here to disable anonymization in the paper
+%\isanonfalse
+\isanontrue
 
-\author{\IEEEauthorblockN{Matteo Liberato}
-\IEEEauthorblockA{University of Twente\\
-m.liberato@utwente.nl}}
+\ifisanon
 
-\author{\IEEEauthorblockN{Antonia Affinito}
-\IEEEauthorblockA{University of Twente\\
-a.affinito@utwente.nl}}
+\author{Paper \#A, B pages body, C pages total}
+\else 
+\author{blaat
+}
 
-\author{\IEEEauthorblockN{Bernd Meijerink}
-\IEEEauthorblockA{University of Twente\\
-bernd.meijerink@utwente.nl}}
+\fi
 
-\author{\IEEEauthorblockN{Ralph Holz}
-\IEEEauthorblockA{University of M\"{u}nster\\
-ralph.holz@uni-muenster.del}}
+\def \manycasttwo  {MAnycast\textsuperscript{2}\xspace}
+\def \manycast  {MAnycastR\xspace}
 
-\author{\IEEEauthorblockN{Mattijs Jonker}
-\IEEEauthorblockA{University of Twente\\
-m.jonker@utwente.nl}}
+\begin{abstract}
+Anycast allows for providing services from multiple, geographically distant, Points of Presence (PoPs) using a single IP address to \eg, provide increased resilience.
+However, due to its opaqueness it is often unknown which addresses are provided using anycast and, if so, where its PoPs are located.
+As anycast is widely used for \eg, critical Internet infrastructure like the DNS, there have been efforts in mapping anycast deployments.
+The current state-of-the-art, a technique called iGreedy, relies on latency measurements. % to detect anycast and allows for geolocating PoPs using trilateration similar to conventional unicast IP geolocation.
+However, such measurements are noisy as they suffer from \eg, network propagation delays.
 
-\author{\IEEEauthorblockN{Alessio Botta}
-\IEEEauthorblockA{Universit\`{a} degli Studi di Napoli Federico II\\
-a.botta@unina.it}}
+Previous work has shown that traceroute, a technique that reveals the individual hops a packet traverses, can be used to detect anycast. % as distinct PoPs will have different neighboring routers.
+Furthermore, it can locate anycast using available geolocation data of hops near anycast PoPs. 
 
-\author{\IEEEauthorblockN{Anna Sperotto}
-\IEEEauthorblockA{University of Twente\\
-a.sperotto@utwente.nl}}
+This work is the first to assess the performance of the traceroute technique at scale by performing it towards O(4) anycast prefixes.
+Our results show ...
+We provide an extensive validation of the traceroute technique, publicly release our code, and release an extensive geolocation dataset of anycast networks.
 
-
-\author{\IEEEauthorblockN{Anonymous Authors}}
-
+\end{abstract}
 
 \maketitle
 
-\begin{abstract}
-In today's society, ensuring the safety of children online has become a priority for parents, educators, and policymakers. Parental control systems are widely used to restrict access to age-inappropriate online content, offering a tool for protecting children from potential online risks.
-However, their blocking behavior across different technologies remains hidden and poorly analyzed.
-In this paper, we present a comparative analysis of seven parental control solutions: three provided by routers with built-in filtering functionalities (TP-Link, Netgear, and ASUS), two DNS-based services (OpenDNS and DNS.eu), and a software tool (Norton Family).
-Each system was tested by systematically visiting a large set of domains and recording which were blocked.
-We then classified all domains into content categories and used this classification to evaluate the consistency and selectivity of each parental control system.
-Our findings show that parental controls frequently fall short of providing adequate protection: Some systems fail to block up to 96\% of inappropriate domains, while others block appropriate content or apply inconsistent and arbitrary filtering rules.
-For example, ASUS allows access to over 95\% of gambling websites, and Netgear exhibits internal inconsistencies, with one-third of the domains blocked under its "Adult" settings remaining accessible under its stricter "Child" setting.
-These results provide insight into the real-world operation of popular parental control technologies and show a methodology for evaluating category-based filtering at scale.
-\end{abstract}
+\input{introduction.tex}
 
-\begin{IEEEkeywords}
-Network measurements, Use and digitalization, Parental control.
-\end{IEEEkeywords}
+\input{background.tex}
 
-% Each parts automatically adds .tex to the input field
+\input{methodology.tex}
 
-\section{Introduction}
-\input{1_Introduction}  
+\input{results.tex}
 
-\section{Background \& Related work}\label{sec:rw}
-\input{2_Background_and_related_work_Antonia}  
+\input{discussion.tex}
 
-\section{Methodology}\label{sec:methodology}
-\input{3_Methodology}  
+\section{Acknowledgements}
+kc would like us to acknowledge the GMI grant.
 
-\section{Dataset}\label{sec:dataset}
-\input{4_Dataset}
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{atr}
 
-\section{Results}\label{sec:results}
-\input{5_Results} 
+%\appendix
 
-\section{Discussion}\label{sec:discussion}
-\input{6_Limitations_and_future_works}
-
-\section{Conclusions}\label{sec:conclusions}
-\input{7_Conclusion} 
-
-%TODO: DO NOT FORGET ACKS
-%\textbf{Acknowledgements --} CVD, Cisco 
-
-\bibliographystyle{IEEEtran} 
-\bibliography{references}  % references go in references.bib
-
-\appendix
-
-\subsection{Ethical Considerations}
-Our measurement approach involves active measurements, both at the DNS level
-(routers and DNS services) and the HTTPS level (software). We took care to
-avoid undue load on the on the infrastructure of the services we were testing.
-For the routers, we performed fewer than 120 DNS $requests/s$, which is
-well below the number of requests a resolver is able to handle in operational
-settings.
-For the DNS service, taking into account that they involve open resolvers
-dedicated not only to parental control functionality, we set an even more cautious
-pace, limiting ourselves to 300K $requests/day$ (3.5 $requests/sec$).
-Finally, the software solutions appeared not to directly rely on a back-end
-infrastructure, so we did not apply any explicit pacing as the measurement is
-naturally quite slow. To further limit any possible impact, we focused on a
-one-shot measurement.
-For website categorization we rely on data provided by Cisco. A number of
-Top sites contain potentially disturbing content. During the
-measurements we took care that we never visually load any of those pages. 
+%\input{appendix.tex}
 
 \end{document}
+\endinput
+
